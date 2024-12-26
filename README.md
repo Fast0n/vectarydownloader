@@ -1,12 +1,12 @@
 # Vectary Downloader
 
-This script allows you to download a 3D model from Vectary and convert it to the `.glb` format using the `gltf-pipeline` command.
+This script allows you to download a 3D model from Vectary and convert it to the `.gltf` format using the `gltf-pipeline` command.
 
 ## How it works
 
 1. **Enter the Vectary model URL**: The script extracts the model ID from the provided URL.
 2. **Download the model**: The model in `.gltf` format is downloaded along with all necessary files indicated by the URIs in the JSON file.
-3. **Conversion**: The `.gltf` model is converted to the `.glb` format using the `gltf-pipeline` command.
+3. **Merging**: All files are combined to recreate the `.gltf` file.
 4. **Cleanup**: Temporary files are deleted after the operation is completed.
 
 ## Prerequisites

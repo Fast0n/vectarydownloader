@@ -63,14 +63,19 @@ def main():
         for uri in all_uris:
             download_file(f"https://app.vectary.com/viewer/data/{model_id}/gltf/{uri}", uri)
 
-        # Run the conversion with gltf-pipeline
+        # Run the conversion with gltf-pipeline to glb
         command = ["gltf-pipeline", "-i", file_name, "-o", f"{model_id}.glb"]
+        subprocess.run(command)
+        
+        # Run the conversion with gltf-pipeline to gltf
+        command = ["gltf-pipeline", "-i", f"{model_id}.glb", "-o", file_name]
         subprocess.run(command)
 
         # Clean up the temporary files
         for uri in all_uris:
             os.remove(uri)
-        os.remove(file_name)
+        os.remove(f"{model_id}.glb")
+
 
     else:
         print("No ID found.")
